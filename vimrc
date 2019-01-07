@@ -1,9 +1,9 @@
 " ========================================================= "
 " Initial configuration
-" Download vim-plug (https://github.com/junegunn/vim-plug) 
+" Download vim-plug (https://github.com/junegunn/vim-plug)
 " It requires `curl` to be installed
 " ========================================================= "
- 
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -16,7 +16,7 @@ endif
 " [o] Fugitive (Git integration)
 " [o] Surround
 " [o] YouCompleteMe
-" [o] Fzf (Fuzzy Finder) 
+" [o] Fzf (Fuzzy Finder)
 " [ ] Nerdtree
 " ========================================================= "
 
@@ -49,7 +49,7 @@ Plug 'junegunn/fzf.vim'
   nnoremap <silent> <C-p> :FZF -m <cr>
 
 " Use <C-f> to search in files
-  nnoremap <silent> <C-f> :Ag <cr> 
+  nnoremap <silent> <C-f> :Ag <cr>
 " }}}
 
 " Nerdtree
@@ -57,7 +57,7 @@ Plug 'scrooloose/nerdtree'
 " {{{
 " Open NERDTree when vim starts in a directory
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif 
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Close vim if the only window left open in NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -74,22 +74,26 @@ call plug#end()
 " [o] Show line numbers
 " [o] Highlight search
 " [o] No lime wrap
+" [o] Allow use of 256 colors in terminal
+" [o] Show tabs and whitespaces
 " [o] Syntax colors
-" [o] Better colorscheme 
+" [o] Better colorscheme
 " ========================================================= "
-    
+
 set number
 set hls
 set nowrap
-colorscheme murphy
+set t_Co=256
+set list listchars=tab:→\ ,trail:¬
 syntax on
+colorscheme murphy
 
 " ========================================================= "
 " Usability configuration
 " [o] Incremental search
-" [o] Ignorecase and smartcase 
+" [o] Ignorecase and smartcase
 " [o] Use spaces instead of tabs
-" [o] TabSize=2, ShiftWidth=2, AutoIndent, SmartIndent 
+" [o] TabSize=2, ShiftWidth=2, AutoIndent, SmartIndent
 " [o] Normal usage of backspace
 " [o] Encode files as utf-8
 " ========================================================= "
@@ -104,7 +108,7 @@ set encoding=utf-8
 
 " ========================================================= "
 " Performance configuration
-" [o] No backups 
+" [o] No backups
 " [o] Lazy redraw
 " ========================================================= "
 
@@ -112,3 +116,19 @@ set noswapfile
 set nobackup
 set nowb
 set lazyredraw
+
+" ========================================================= "
+" Utils configuration
+" [o] Remove trailing spaces when saving a file
+" [ ] Auto reload .vimrc
+" ========================================================= "
+
+" {{{
+" Remove trailing whitespaces
+  autocmd BufWritePre * :%s/\s\+$//e
+" }}}
+
+" {{{
+" Auto reload .vimrc
+  autocmd BufWritePost .vimrc source %
+" }}}
