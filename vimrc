@@ -47,8 +47,23 @@ Plug 'junegunn/fzf.vim'
 " {{{
 " Use <C-p> to search files path
   nnoremap <silent> <C-p> :FZF -m <cr>
+
 " Use <C-f> to search in files
   nnoremap <silent> <C-f> :Ag <cr> 
+" }}}
+
+" Nerdtree
+Plug 'scrooloose/nerdtree'
+" {{{
+" Open NERDTree when vim starts in a directory
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif 
+
+" Close vim if the only window left open in NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Map a key to toggle NERDTree
+  map <C-n> :NERDTreeToggle <CR>
 " }}}
 
 " End plugin configuration
