@@ -91,6 +91,7 @@ syntax on
 " [o] Use spaces instead of tabs
 " [o] TabSize=2, ShiftWidth=2, AutoIndent, SmartIndent 
 " [o] Normal usage of backspace
+" [o] Encode files as utf-8
 " ========================================================= "
 
 set incsearch
@@ -99,6 +100,7 @@ set smartcase
 set expandtab
 set ts=2 sw=2 ai si
 set backspace=2
+set encoding=utf-8
 
 " ========================================================= "
 " Performance configuration
