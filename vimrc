@@ -17,7 +17,7 @@ endif
 " [o] Surround
 " [o] YouCompleteMe
 " [o] Fzf (Fuzzy Finder)
-" [ ] Nerdtree
+" [o] Nerdtree
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -96,6 +96,7 @@ colorscheme murphy
 " [o] TabSize=2, ShiftWidth=2, AutoIndent, SmartIndent
 " [o] Normal usage of backspace
 " [o] Encode files as utf-8
+" [o] Allow filetype specific plugins
 " ========================================================= "
 
 set incsearch
@@ -105,6 +106,7 @@ set expandtab
 set ts=2 sw=2 ai si
 set backspace=2
 set encoding=utf-8
+filetype plugin on
 
 " ========================================================= "
 " Performance configuration
@@ -120,7 +122,7 @@ set lazyredraw
 " ========================================================= "
 " Utils configuration
 " [o] Remove trailing spaces when saving a file
-" [ ] Auto reload .vimrc
+" [o] Auto reload .vimrc
 " ========================================================= "
 
 " {{{
