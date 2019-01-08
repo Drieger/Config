@@ -20,6 +20,7 @@ endif
 " [o] Nerdtree
 " [o] Gruvbox theme
 " [o] Airline
+" [o] Add multi-cursor
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -30,11 +31,13 @@ Plug 'tpope/vim-fugitive'
 " No extra configuration
 " }}}
 
+
 " Make it easier to surround things
 Plug 'tpope/vim-surround'
 " {{{
 " No extra configuration
 " }}}
+
 
 " Better autocomplete
 " Supported languages: c-family, python2/python3, javascript/typescript
@@ -42,6 +45,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --t
 " {{{
   let g:ycm_autoclose_preview_window_after_completion = 1
 " }}}
+
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -53,6 +57,7 @@ Plug 'junegunn/fzf.vim'
 " Use <C-f> to search in files
   nnoremap <silent> <C-f> :Ag <cr>
 " }}}
+
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -78,6 +83,7 @@ Plug 'morhetz/gruvbox'
   let g:gruvbox_contrast_dark = "hard"
 " }}}
 
+
 " Airline and airline themes
 " Gruvbox contains its own airline theme. Additional package is not
 " necessary.
@@ -85,6 +91,13 @@ Plug 'vim-airline/vim-airline'
 " {{{
   let g:airline_theme = 'gruvbox'
 " }}}
+
+
+Plug 'terryma/vim-multiple-cursors'
+" {{{
+" No extra configuration
+" }}}
+
 
 " End plugin configuration
 call plug#end()
