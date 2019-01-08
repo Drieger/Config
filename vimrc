@@ -18,6 +18,7 @@ endif
 " [o] YouCompleteMe
 " [o] Fzf (Fuzzy Finder)
 " [o] Nerdtree
+" [o] Gruvbox theme
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -66,6 +67,16 @@ Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle <CR>
 " }}}
 
+
+" Gruvbox theme for a better experience
+Plug 'morhetz/gruvbox'
+" {{{
+" Enables italic text
+  let g:gruvbox_italic = 1
+" Make dark mode contrast harder
+  let g:gruvbox_contrast_dark = "hard"
+" }}}
+
 " End plugin configuration
 call plug#end()
 
@@ -74,8 +85,11 @@ call plug#end()
 " [o] Show line numbers
 " [o] Highlight search
 " [o] No lime wrap
-" [o] Allow use of 256 colors in terminal
+" [o] Add true color terminal support
+" [o] Dark background
 " [o] Show tabs and whitespaces
+" [o] Show line, column on status line
+" [o] Show statusline
 " [o] Syntax colors
 " [o] Better colorscheme
 " ========================================================= "
@@ -83,10 +97,13 @@ call plug#end()
 set number
 set hls
 set nowrap
-set t_Co=256
+set termguicolors
+set background=dark
 set list listchars=tab:→\ ,trail:¬
+set ruler
+set laststatus=2
 syntax on
-colorscheme murphy
+colorscheme gruvbox
 
 " ========================================================= "
 " Usability configuration
