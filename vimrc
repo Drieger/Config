@@ -19,6 +19,7 @@ endif
 " [o] Fzf (Fuzzy Finder)
 " [o] Nerdtree
 " [o] Gruvbox theme
+" [o] Airline
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -75,6 +76,14 @@ Plug 'morhetz/gruvbox'
   let g:gruvbox_italic = 1
 " Make dark mode contrast harder
   let g:gruvbox_contrast_dark = "hard"
+" }}}
+
+" Airline and airline themes
+" Gruvbox contains its own airline theme. Additional package is not
+" necessary.
+Plug 'vim-airline/vim-airline'
+" {{{
+  let g:airline_theme = 'gruvbox'
 " }}}
 
 " End plugin configuration
@@ -135,6 +144,7 @@ set noswapfile
 set nobackup
 set nowb
 set lazyredraw
+
 
 " ========================================================= "
 " Utils configuration
