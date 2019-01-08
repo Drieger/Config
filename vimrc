@@ -21,9 +21,11 @@ endif
 " [o] Gruvbox theme
 " [o] Airline
 " [o] Add multi-cursor
+" [o] Emmet
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
+
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -69,8 +71,8 @@ Plug 'scrooloose/nerdtree'
 " Close vim if the only window left open in NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Map a key to toggle NERDTree
-  map <C-n> :NERDTreeToggle <CR>
+" Map a key to toggle NERDTree avoid conflict with multiple cursors
+  map <C-t> :NERDTreeToggle <CR>
 " }}}
 
 
@@ -92,10 +94,20 @@ Plug 'vim-airline/vim-airline'
   let g:airline_theme = 'gruvbox'
 " }}}
 
-
+" Multiple-cursors support
 Plug 'terryma/vim-multiple-cursors'
 " {{{
 " No extra configuration
+" }}}
+
+
+" Emmet
+" User <C-y><leader> to expand
+Plug 'mattn/emmet-vim'
+" {{{
+" Add emmet only for html/css
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css EmmetInstall
 " }}}
 
 
@@ -157,7 +169,6 @@ set noswapfile
 set nobackup
 set nowb
 set lazyredraw
-
 
 " ========================================================= "
 " Utils configuration
