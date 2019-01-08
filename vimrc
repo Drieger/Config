@@ -82,7 +82,7 @@ call plug#end()
 
 " ========================================================= "
 " Interface configuration
-" [o] Show line numbers
+" [o] Show line numbers (hybrid with absolute and relative)
 " [o] Highlight search
 " [o] No lime wrap
 " [o] Add true color terminal support
@@ -94,7 +94,7 @@ call plug#end()
 " [o] Better colorscheme
 " ========================================================= "
 
-set number
+set number relativenumber
 set hls
 set nowrap
 set termguicolors
@@ -140,6 +140,7 @@ set lazyredraw
 " Utils configuration
 " [o] Remove trailing spaces when saving a file
 " [o] Auto reload .vimrc
+" [o] Relative numbers on current buffer or insert mode
 " ========================================================= "
 
 " {{{
@@ -150,4 +151,13 @@ set lazyredraw
 " {{{
 " Auto reload .vimrc
   autocmd BufWritePost .vimrc source %
+" }}}
+
+" {{{
+" Relative numbers on current buffer or insert mode
+  augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  augroup END
 " }}}
