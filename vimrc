@@ -10,6 +10,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
+" ========================================================= "
+" Set leader key as <Space>
+" It must be done before any usage or it won't be effective
+" ========================================================= "
+let mapleader = "\<Space>"
+
 " ========================================================= "
 " Plugin configuration
 " We are using vim-plug to manage our plugins
@@ -22,6 +29,7 @@ endif
 " [o] Airline
 " [o] Add multi-cursor
 " [o] Emmet
+" [o] Snippets
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -108,12 +116,21 @@ Plug 'terryma/vim-multiple-cursors'
 
 
 " Emmet
-" User <C-y><leader> to expand
+" User <C-y>, to expand
 Plug 'mattn/emmet-vim'
 " {{{
 " Add emmet only for html/css
   let g:user_emmet_install_global = 0
   autocmd FileType html,css EmmetInstall
+" }}}
+
+
+"Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" {{{
+" Set key to expand snippet
+  let g:UltiSnipsExpandTrigger="<Leader>e"
 " }}}
 
 
