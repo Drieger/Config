@@ -30,6 +30,7 @@ let mapleader = "\<Space>"
 " [o] Add multi-cursor
 " [o] Emmet
 " [o] Snippets
+" [o] Linters
 " ========================================================= "
 
 call plug#begin('~/.vim/plugged')
@@ -134,6 +135,14 @@ Plug 'honza/vim-snippets'
 " }}}
 
 
+"Linters
+Plug 'neomake/neomake'
+" {{{
+" Open list automatically
+  let g:neomake_open_list = 2
+" }}}
+
+
 " End plugin configuration
 call plug#end()
 
@@ -212,6 +221,7 @@ set lazyredraw
 " [o] Remove trailing spaces when saving a file
 " [o] Auto reload .vimrc
 " [o] Relative numbers on current buffer or insert mode
+" [o] Run linter when writing a buffer
 " ========================================================= "
 
 " {{{
@@ -231,4 +241,9 @@ set lazyredraw
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
   augroup END
+" }}}
+
+" {{{
+" Run linter when writing a buffer
+  call neomake#configure#automake('w')
 " }}}
