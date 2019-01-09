@@ -53,8 +53,14 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --t
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 " {{{
+" Smaller split size
+  let g:fzf_layout = {'window': '10split enew'}
+
+" Use ag as default and .gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 " Use <C-p> to search files path
-  nnoremap <silent> <C-p> :FZF -m <cr>
+  nnoremap <silent> <C-p> :FZF<cr>
 
 " Use <C-f> to search in files
   nnoremap <silent> <C-f> :Ag <cr>
