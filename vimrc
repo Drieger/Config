@@ -164,6 +164,16 @@ set splitbelow
 filetype plugin on
 
 " ========================================================= "
+" Use VIm right configuration
+" [o] Disable arrow keys (up, right, down, left) in normal
+" ========================================================= "
+
+nnoremap <Up>    :echoe "Key is disabled, use k"<CR>
+nnoremap <Right> :echoe "Key is disabled, use l"<CR>
+nnoremap <Down>  :echoe "Key is disabled, use j"<CR>
+nnoremap <Left>  :echoe "Key is disabled, use h"<CR>
+
+" ========================================================= "
 " Performance configuration
 " [o] No backups
 " [o] Lazy redraw
