@@ -147,6 +147,8 @@ colorscheme gruvbox
 " [o] TabSize=2, ShiftWidth=2, AutoIndent, SmartIndent
 " [o] Normal usage of backspace
 " [o] Encode files as utf-8
+" [o] Vertical split on the right
+" [o] Horizontal split below
 " [o] Allow filetype specific plugins
 " ========================================================= "
 
@@ -157,6 +159,8 @@ set expandtab
 set ts=2 sw=2 ai si
 set backspace=2
 set encoding=utf-8
+set splitright
+set splitbelow
 filetype plugin on
 
 " ========================================================= "
