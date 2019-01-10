@@ -31,6 +31,7 @@
 " [o] Emmet
 " [o] Snippets
 " [o] Linters
+" [o] Commenter
 " ========================================================= "
 
   call plug#begin('~/.vim/plugged')
@@ -140,6 +141,12 @@
 " {{{
 " Open list automatically
   let g:neomake_open_list = 2
+" }}}
+
+" Commenter
+  Plug 'scrooloose/nerdcommenter'
+" {{{
+  let g:NERDSpaceDelims = 1
 " }}}
 
 
