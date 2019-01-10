@@ -4,18 +4,18 @@
 " It requires `curl` to be installed
 " ========================================================= "
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 
 " ========================================================= "
 " Set leader key as <Space>
 " It must be done before any usage or it won't be effective
 " ========================================================= "
-let mapleader = "\<Space>"
+"
+  let mapleader = "\<Space>"
 
 " ========================================================= "
 " Plugin configuration
@@ -33,18 +33,18 @@ let mapleader = "\<Space>"
 " [o] Linters
 " ========================================================= "
 
-call plug#begin('~/.vim/plugged')
+  call plug#begin('~/.vim/plugged')
 
 
 " Git integration
-Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
 " {{{
 " No extra configuration
 " }}}
 
 
 " Make it easier to surround things
-Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-surround'
 " {{{
 " No extra configuration
 " }}}
@@ -52,15 +52,15 @@ Plug 'tpope/vim-surround'
 
 " Better autocomplete
 " Supported languages: c-family, python2/python3, javascript/typescript
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --ts-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --ts-completer' }
 " {{{
   let g:ycm_autoclose_preview_window_after_completion = 1
 " }}}
 
 
 " Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
 " {{{
 " Smaller split size
   let g:fzf_layout = {'window': '10split enew'}
@@ -77,7 +77,7 @@ Plug 'junegunn/fzf.vim'
 
 
 " Nerdtree
-Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
 " {{{
 " Open NERDTree when vim starts in a directory
   autocmd StdinReadPre * let s:std_in=1
@@ -92,7 +92,7 @@ Plug 'scrooloose/nerdtree'
 
 
 " Gruvbox theme for a better experience
-Plug 'morhetz/gruvbox'
+  Plug 'morhetz/gruvbox'
 " {{{
 " Enables italic text
   let g:gruvbox_italic = 1
@@ -104,13 +104,13 @@ Plug 'morhetz/gruvbox'
 " Airline and airline themes
 " Gruvbox contains its own airline theme. Additional package is not
 " necessary.
-Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline'
 " {{{
   let g:airline_theme = 'gruvbox'
 " }}}
 
 " Multiple-cursors support
-Plug 'terryma/vim-multiple-cursors'
+  Plug 'terryma/vim-multiple-cursors'
 " {{{
 " No extra configuration
 " }}}
@@ -118,7 +118,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Emmet
 " User <C-y>, to expand
-Plug 'mattn/emmet-vim'
+  Plug 'mattn/emmet-vim'
 " {{{
 " Add emmet only for html/css
   let g:user_emmet_install_global = 0
@@ -127,8 +127,8 @@ Plug 'mattn/emmet-vim'
 
 
 "Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 " {{{
 " Set key to expand snippet
   let g:UltiSnipsExpandTrigger="<Leader>e"
@@ -136,7 +136,7 @@ Plug 'honza/vim-snippets'
 
 
 "Linters
-Plug 'neomake/neomake'
+  Plug 'neomake/neomake'
 " {{{
 " Open list automatically
   let g:neomake_open_list = 2
@@ -144,7 +144,7 @@ Plug 'neomake/neomake'
 
 
 " End plugin configuration
-call plug#end()
+  call plug#end()
 
 " ========================================================= "
 " Interface configuration
@@ -160,16 +160,16 @@ call plug#end()
 " [o] Better colorscheme
 " ========================================================= "
 
-set number relativenumber
-set hls
-set nowrap
-set termguicolors
-set background=dark
-set list listchars=tab:→\ ,trail:¬
-set ruler
-set laststatus=2
-syntax on
-colorscheme gruvbox
+  set number relativenumber
+  set hls
+  set nowrap
+  set termguicolors
+  set background=dark
+  set list listchars=tab:→\ ,trail:¬
+  set ruler
+  set laststatus=2
+  syntax on
+  colorscheme gruvbox
 
 " ========================================================= "
 " Usability configuration
@@ -181,29 +181,31 @@ colorscheme gruvbox
 " [o] Encode files as utf-8
 " [o] Vertical split on the right
 " [o] Horizontal split below
+" [o] Show uncomplete commands
 " [o] Allow filetype specific plugins
 " ========================================================= "
 
-set incsearch
-set ignorecase
-set smartcase
-set expandtab
-set ts=2 sw=2 ai si
-set backspace=2
-set encoding=utf-8
-set splitright
-set splitbelow
-filetype plugin on
+  set incsearch
+  set ignorecase
+  set smartcase
+  set expandtab
+  set ts=2 sw=2 ai si
+  set backspace=2
+  set encoding=utf-8
+  set splitright
+  set splitbelow
+  set showcmd
+  filetype plugin on
 
 " ========================================================= "
 " Use VIm right configuration
 " [o] Disable arrow keys (up, right, down, left) in normal
 " ========================================================= "
 
-nnoremap <Up>    :echoe "Key is disabled, use k"<CR>
-nnoremap <Right> :echoe "Key is disabled, use l"<CR>
-nnoremap <Down>  :echoe "Key is disabled, use j"<CR>
-nnoremap <Left>  :echoe "Key is disabled, use h"<CR>
+  nnoremap <Up>    :echoe "Key is disabled, use k"<CR>
+  nnoremap <Right> :echoe "Key is disabled, use l"<CR>
+  nnoremap <Down>  :echoe "Key is disabled, use j"<CR>
+  nnoremap <Left>  :echoe "Key is disabled, use h"<CR>
 
 " ========================================================= "
 " Performance configuration
@@ -211,10 +213,10 @@ nnoremap <Left>  :echoe "Key is disabled, use h"<CR>
 " [o] Lazy redraw
 " ========================================================= "
 
-set noswapfile
-set nobackup
-set nowb
-set lazyredraw
+  set noswapfile
+  set nobackup
+  set nowb
+  set lazyredraw
 
 " ========================================================= "
 " Utils configuration
@@ -247,3 +249,12 @@ set lazyredraw
 " Run linter when writing a buffer
   call neomake#configure#automake('w')
 " }}}
+
+" ========================================================= "
+" Key binds and maps configuraton
+"
+" [o] Save file → <Ctrl+s> (Added "stty -ixon" in .bashrc)
+" ========================================================= "
+  inoremap <C-s> <Esc>:w<Cr>a
+  nnoremap <C-s> <Esc>:w<Cr>
+  vnoremap <C-s> <Esc>:w<Cr>gv
