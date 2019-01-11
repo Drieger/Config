@@ -261,7 +261,36 @@
 " Key binds and maps configuraton
 "
 " [o] Save file → <Ctrl+s> (Added "stty -ixon" in .bashrc)
+" [o] Maximize window → <Ctrl+w><Ctrl+o>
 " ========================================================= "
+"
+" {{{
+" Save file using Ctrl+s
   inoremap <C-s> <Esc>:w<Cr>a
   nnoremap <C-s> <Esc>:w<Cr>
   vnoremap <C-s> <Esc>:w<Cr>gv
+" }}}
+
+" {{{
+" Maximize window
+" http://vim.wikia.com/wiki/Maximize_window_and_return_to_previous_split_structure
+  function! MaximizeToggle()
+    if exists("s:maximize_session")
+      exec "source " . s:maximize_session
+      call delete(s:maximize_session)
+      unlet s:maximize_session
+      let &hidden=s:maximize_hidden_save
+      unlet s:maximize_hidden_save
+    else
+      let s:maximize_hidden_save = &hidden
+      let s:maximize_session = tempname()
+      set hidden
+      exec "mksession! " . s:maximize_session
+      only
+    endif
+  endfunction
+
+  nnoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>
+  inoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>a
+  vnoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>gv
+" }}}
