@@ -132,7 +132,7 @@
   Plug 'honza/vim-snippets'
 " {{{
 " Set key to expand snippet
-  let g:UltiSnipsExpandTrigger="<Leader>e"
+  let g:UltiSnipsExpandTrigger="<C-e>"
 " }}}
 
 
