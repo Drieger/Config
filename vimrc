@@ -32,6 +32,7 @@
 " [o] Snippets
 " [o] Linters
 " [o] Commenter
+" [o] Auto-close
 " ========================================================= "
 
   call plug#begin('~/.vim/plugged')
@@ -143,10 +144,17 @@
   let g:neomake_open_list = 2
 " }}}
 
+
 " Commenter
   Plug 'scrooloose/nerdcommenter'
 " {{{
   let g:NERDSpaceDelims = 1
+" }}}
+
+
+" Auto-close
+Plug 'townk/vim-autoclose'
+" {{{
 " }}}
 
 
