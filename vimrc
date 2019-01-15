@@ -153,8 +153,10 @@
 
 
 " Auto-close
-Plug 'townk/vim-autoclose'
+" Use delimitMate to avoid conflict with YouCompleteMe
+Plug 'raimondi/delimitmate'
 " {{{
+" No extra configuration
 " }}}
 
 
