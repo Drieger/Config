@@ -11,6 +11,12 @@
   endif
 
 " ========================================================= "
+" Observations:
+" ========================================================= "
+" - Tweak Ubuntu (sudo apt install gnome-tweaks)
+" - Terminal Themes (https://mayccoll.github.io/Gogh/#0)
+
+" ========================================================= "
 " Set leader key as <Space>
 " It must be done before any usage or it won't be effective
 " ========================================================= "
