@@ -33,6 +33,7 @@
 " [o] Linters
 " [o] Commenter
 " [o] Auto-close
+" [o] Tags
 " ========================================================= "
 
   call plug#begin('~/.vim/plugged')
@@ -87,6 +88,9 @@
 
 " Close vim if the only window left open in NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Disable numbers on NERDTree buffers
+  let g:NERDTreeShowLineNumbers=0
 
 " Map a key to toggle NERDTree avoid conflict with multiple cursors
   map <C-t> :NERDTreeToggle <CR>
@@ -155,6 +159,13 @@
 " Auto-close
 " Use delimitMate to avoid conflict with YouCompleteMe
 Plug 'raimondi/delimitmate'
+" {{{
+" No extra configuration
+" }}}
+
+
+" Tags
+Plug 'universal-ctags/ctags'
 " {{{
 " No extra configuration
 " }}}
@@ -259,6 +270,7 @@ Plug 'raimondi/delimitmate'
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    autocmd BufEnter,BufLeave NERD_* set nonumber norelativenumber
   augroup END
 " }}}
 
