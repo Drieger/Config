@@ -1,4 +1,4 @@
-" ========================================================= "
+      " ========================================================= "
 " Initial configuration
 " Download vim-plug (https://github.com/junegunn/vim-plug)
 " It requires `curl` to be installed
@@ -290,6 +290,7 @@ Plug 'universal-ctags/ctags'
 "
 " [o] Save file → <Ctrl+s> (Added "stty -ixon" in .bashrc)
 " [o] Maximize window → <Ctrl+w><Ctrl+o>
+" [ ] Move accross splits without using <Ctrl+w> prefix
 " ========================================================= "
 "
 " {{{
@@ -321,4 +322,13 @@ Plug 'universal-ctags/ctags'
   nnoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>
   inoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>a
   vnoremap <C-W><C-O> <Esc>:call MaximizeToggle()<Cr>gv
+" }}}
+
+
+" {{{
+" Move accross splits without prefix
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
 " }}}
