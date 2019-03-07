@@ -31,6 +31,7 @@
 " [o] YouCompleteMe
 " [o] Fzf (Fuzzy Finder)
 " [o] Nerdtree
+" [o] Nerdtree git-ignore
 " [o] Gruvbox theme
 " [o] Airline
 " [o] Add multi-cursor
@@ -100,6 +101,12 @@
 
 " Map a key to toggle NERDTree avoid conflict with multiple cursors
   map <C-t> :NERDTreeToggle <CR>
+" }}}
+
+
+" Nerdtree git-ignore
+  Plug 'albfan/nerdtree-git-plugin'
+" {{{
 " }}}
 
 
