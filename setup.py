@@ -82,6 +82,19 @@ def setup_fonts():
   output = "{padding}{mark} Installing Fira Code font..."
   print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
 
+def setup_applications():
+  """
+  Install basic applications
+  """
+  os.system('sudo apt install software-properties-common apt-transport-https wget');
+  os.system('wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -');
+  os.system('sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"')
+  os.system('sudo apt update && sudo apt install code -y')
+  output = "{padding}{mark} Installing VSCode..."
+  print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
+
+
+
 def setup_vim():
     """
     1 - sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
@@ -121,6 +134,7 @@ if __name__ == "__main__":
     print("Welcome, we will help you to setup your new environment\n")
     #  setup_wallpaper()
     #  setup_theme()
-    setup_icons()
+    # setup_icons()
     # setup_fonts()
+    # setup_applications()
 
