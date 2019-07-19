@@ -15,6 +15,7 @@
     * arc-theme
     * radix icons
     * wallpaper
+    * fira code font
 
     :created by Drieger
 """
@@ -26,6 +27,12 @@ import pathlib
 CHECK_MARK = "\u2713"
 BALLOT_MARK = "\u2717"
 LEFT_PADDING = "  "
+
+def setup_shortcuts():
+    """
+    Disable `dock` launch with Super
+    """
+    os.system("gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false")
 
 def setup_wallpaper(location=None):
     """
@@ -48,8 +55,9 @@ def setup_theme():
     """
     Install and change ubuntu theme to arc-theme
     """
-    output = "{padding}{mark} Changing theme..."
     os.system('sudo apt install arc-theme')
+
+    output = "{padding}{mark} Installing theme..."
     print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
 
 def setup_icons():
@@ -62,6 +70,17 @@ def setup_icons():
     shutil.copytree('/tmp/flat-remix', os.path.join(str(pathlib.Path.home()), '.icons'))
     os.system('gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"')
 
+    output = "{padding}{mark} Installing icons theme..."
+    print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
+
+def setup_fonts():
+  """
+  Install fonts package
+  """
+  os.system('sudo apt update && sudo apt install fonts-firacode')
+
+  output = "{padding}{mark} Installing Fira Code font..."
+  print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
 
 def setup_vim():
     """
@@ -103,4 +122,5 @@ if __name__ == "__main__":
     #  setup_wallpaper()
     #  setup_theme()
     setup_icons()
+    # setup_fonts()
 

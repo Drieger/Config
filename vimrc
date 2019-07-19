@@ -1,4 +1,4 @@
-      " ========================================================= "
+" ========================================================= "
 " Initial configuration
 " Download vim-plug (https://github.com/junegunn/vim-plug)
 " It requires `curl` to be installed
@@ -62,9 +62,9 @@
 
 " Better autocomplete
 " Supported languages: c-family, python2/python3, javascript/typescript
-  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --ts-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --ts-completer' }
 " {{{
-  let g:ycm_autoclose_preview_window_after_completion = 1
+"  let g:ycm_autoclose_preview_window_after_completion = 1
 " }}}
 
 
