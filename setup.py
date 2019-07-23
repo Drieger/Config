@@ -86,13 +86,20 @@ def setup_applications():
   """
   Install basic applications
   """
-  os.system('sudo apt install software-properties-common apt-transport-https wget');
-  os.system('wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -');
+
+  # VSCode
+  os.system('sudo apt install software-properties-common apt-transport-https wget')
+  os.system('wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -')
   os.system('sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"')
   os.system('sudo apt update && sudo apt install code -y')
   output = "{padding}{mark} Installing VSCode..."
   print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
 
+  # Zsh
+  os.system('sudo apt install zsh')
+  os.system('chsh -s $(which zsh')
+  output = "{padding}{mark} Installing Zsh..."
+  print(output.format(padding=LEFT_PADDING, mark=BALLOT_MARK))
 
 
 def setup_vim():
